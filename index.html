@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zorgkompas Frankrijk - Lexicon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #800000 0%, #a52a2a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(128, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.95;
+            font-size: 1.1em;
+        }
+        
+        /* Infographic Section */
+        .infographic {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .infographic h2 {
+            color: #800000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .flow-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .flow-box {
+            background: #f8f9fa;
+            border: 2px solid #800000;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            position: relative;
+        }
+        
+        .flow-box.primary {
+            background: #800000;
+            color: white;
+        }
+        
+        .flow-arrow {
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #800000;
+            font-size: 24px;
+        }
+        
+        /* Rubrieken navigatie */
+        .rubrieken-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .rubriek-btn {
+            padding: 10px 20px;
+            background: #fff;
+            color: #800000;
+            border: 2px solid #800000;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .rubriek-btn:hover {
+            background: #800000;
+            color: white;
+        }
+        
+        .rubriek-btn.active {
+            background: #800000;
+            color: white;
+        }
+        
+        /* Content sections */
+        .rubriek-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        
+        .rubriek-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .term-category {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .term-category h3 {
+            color: #800000;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .term-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+        
+        .term-item:hover {
+            border-left-color: #800000;
+            padding-left: 25px;
+        }
+        
+        .term-name {
+            font-weight: bold;
+            color: #800000;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        
+        .term-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Quick tips */
+        .tips-box {
+            background: #fffbf0;
+            border: 2px solid #ffb700;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .tips-box h4 {
+            color: #800000;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tips-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .tips-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .tips-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #800000;
+            font-weight: bold;
+        }
+        
+        /* Search box */
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #800000;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flow-diagram {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                display: none;
+            }
+            
+            .rubrieken-nav {
+                justify-content: center;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 Zorgkompas Frankrijk - Lexicon</h1>
+            <p>Uw complete gids door het Franse zorgsysteem - van Assurance Maladie tot Mutuelle</p>
+        </div>
+
+        <!-- Infographic -->
+        <div class="infographic">
+            <h2>Hoe werkt het Franse zorgsysteem?</h2>
+            <div class="flow-diagram">
+                <div class="flow-box primary">
+                    <strong>Stap 1</strong><br>
+                    Consult Arts<br>
+                    <small>(€25-50+)</small>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-box">
+                    <strong>Stap 2</strong><br>
+                    Carte Vitale<br>
+                    <small>(Automatisch)</small>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-box">
+                    <strong>Stap 3</strong><br>
+                    Assurance Maladie<br>
+                    <small>(70% BR)</small>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-box">
+                    <strong>Stap 4</strong><br>
+                    Mutuelle<br>
+                    <small>(Rest + dépassement)</small>
+                </div>
+            </div>
+            
+            <div class="tips-box">
+                <h4>⚠️ Belangrijke aandachtspunten</h4>
+                <ul>
+                    <li><strong>100% BR ≠ 100% factuur:</strong> Bij Secteur 2 artsen blijven dépassements voor eigen rekening</li>
+                    <li><strong>Médecin traitant:</strong> Zonder vaste huisarts krijgt u lagere vergoedingen</li>
+                    <li><strong>Franchise:</strong> Wordt nooit vergoed, ook niet door mutuelle</li>
+                    <li><strong>Secteur keuze:</strong> S1 = geen meerkosten, S2 = vaak dépassements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Zoek een term... (bijv. Carte Vitale, dépassement, mutuelle)">
+        </div>
+
+        <!-- Rubrieken navigatie -->
+        <div class="rubrieken-nav">
+            <button class="rubriek-btn active" onclick="showRubriek('alle')">Alle termen</button>
+            <button class="rubriek-btn" onclick="showRubriek('basis')">Basisverzekering</button>
+            <button class="rubriek-btn" onclick="showRubriek('kosten')">Kosten & Bijdragen</button>
+            <button class="rubriek-btn" onclick="showRubriek('sectoren')">Sectoren & Tarieven</button>
+            <button class="rubriek-btn" onclick="showRubriek('zorgpad')">Zorgpad</button>
+            <button class="rubriek-btn" onclick="showRubriek('praktijk')">Praktijk</button>
+            <button class="rubriek-btn" onclick="showRubriek('uitzonderingen')">Uitzonderingen</button>
+            <button class="rubriek-btn" onclick="showRubriek('medicatie')">Medicatie</button>
+            <button class="rubriek-btn" onclick="showRubriek('mutuelle')">Aanvullende verzekering</button>
+        </div>
+
+        <!-- Content sections -->
+        <div id="alle" class="rubriek-content active">
+            <!-- Basisverzekering -->
+            <div class="term-category">
+                <h3>A. Zorgverzekering (basis)</h3>
+                <div class="term-item">
+                    <div class="term-name">Assurance Maladie</div>
+                    <div class="term-description">Frans stelsel van publieke basiszorgverzekering, uitgevoerd via o.a. CPAM. Dit is de Franse tegenhanger van het Nederlandse zorgverzekeringsstelsel.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Carte Vitale</div>
+                    <div class="term-description">Groene zorgpas voor elektronische facturatie en automatische vergoedingen. Vergelijkbaar met een Nederlandse zorgpas, maar dan voor het Franse systeem.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Taux de remboursement</div>
+                    <div class="term-description">Vergoedingspercentage door de basisverzekering (bijvoorbeeld 70% van het tarif de convention). Dit percentage bepaalt hoeveel u terugkrijgt.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Tarif de convention (TC)</div>
+                    <div class="term-description">Officieel referentietarief dat als basis dient voor terugbetaling. Let op: dit is vaak lager dan wat artsen daadwerkelijk rekenen!</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Reste à charge</div>
+                    <div class="term-description">Wat u zelf betaalt na basis- en aanvullende vergoeding. Dit is uw eindafrekening.</div>
+                </div>
+            </div>
+
+            <!-- Kostencomponenten -->
+            <div class="term-category">
+                <h3>B. Kostencomponenten en eigen bijdragen</h3>
+                <div class="term-item">
+                    <div class="term-name">Ticket modérateur</div>
+                    <div class="term-description">Deel van de kosten dat niet door de basisverzekering wordt vergoed (bijvoorbeeld resterende 30% bij 70% terugbetaling).</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Franchise médicale</div>
+                    <div class="term-description">Vaste inhouding per handeling/medicijn (bijvoorbeeld per medicijn, paramedische sessie of vervoer; met jaarplafond), niet vergoed door een mutuelle.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Dépassements d'honoraires</div>
+                    <div class="term-description">Extra kosten boven het Tarif de convention, bepaald door de zorgverlener. Bij Secteur 2 artsen vaak substantieel!</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Forfait patient urgences</div>
+                    <div class="term-description">Vast bedrag per bezoek aan de spoedeisende hulp zonder ziekenhuisopname (momenteel €19,61).</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Reste à charge renforcé</div>
+                    <div class="term-description">Verhoogde eigen bijdrage als men het zorgpad (parcours de soins) of voorschriften niet volgt. Een straf voor 'verkeerd' zorggebruik.</div>
+                </div>
+            </div>
+
+            <!-- Sectoren -->
+            <div class="term-category">
+                <h3>C. Sectoren, afspraken en tariefstelsels</h3>
+                <div class="term-item">
+                    <div class="term-name">Secteur 1</div>
+                    <div class="term-description">Artsen die strikt het Tarif de convention volgen; geen (of zeer zelden) dépassement. De veilige keuze voor uw portemonnee!</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Secteur 2</div>
+                    <div class="term-description">Artsen met vrije tariefstelling; dépassements zijn gangbaar. Sommige beperken zich (Optam/Optam-CO), maar dit blijft minder voorspelbaar dan S1.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Secteur 3</div>
+                    <div class="term-description">Niet-gecontracteerde artsen; vergoeding is zeer laag en dépassements zijn onbeperkt. Vermijd indien mogelijk!</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Optam / Optam-CO</div>
+                    <div class="term-description">(Vrijwillige) tariefafspraken waarbij S2-artsen beloven hun dépassements te matigen; geen harde maxima, wel collectieve kaders.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Base de remboursement (BR)</div>
+                    <div class="term-description">Berekeningsbasis = Tarif de convention of een vastgestelde BR-waarde voor het betrokken zorgtype.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">100% Sécurité Sociale / 100% BR</div>
+                    <div class="term-description">100% van de Base de remboursement (BR), niet 100% van de factuur. Bij S2 blijft het dépassement dus reste à charge tenzij de mutuelle dit dekt.</div>
+                </div>
+            </div>
+
+            <!-- Zorgpad -->
+            <div class="term-category">
+                <h3>D. Zorgpad en coördinatie</h3>
+                <div class="term-item">
+                    <div class="term-name">Médecin traitant</div>
+                    <div class="term-description">Uw vaste huisarts (verplicht te registreren via Assurance Maladie) om vergoedingen op 70% BR-niveau te krijgen voor meeste zorg.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Parcours de soins coordonnés</div>
+                    <div class="term-description">Officieel zorgpad via de médecin traitant → specialist; wie dit omzeilt, krijgt lagere vergoeding en soms reste à charge renforcé.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Bilan de prévention</div>
+                    <div class="term-description">Preventieve check-up (beschikbaar voor bepaalde leeftijdscohorten via Assurance Maladie).</div>
+                </div>
+            </div>
+
+            <!-- Praktijk -->
+            <div class="term-category">
+                <h3>E. Zorgverlening in de praktijk</h3>
+                <div class="term-item">
+                    <div class="term-name">Pharmacien correspondant</div>
+                    <div class="term-description">Apotheker die in samenwerking met de médecin traitant beperkte verlengingen/monitoring kan doen.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Tiers payant</div>
+                    <div class="term-description">Derdebetalersregeling: u betaalt (een deel van) de kosten niet bij de afspraak; regeling tussen arts/apotheek en Assurance Maladie/mutuelle.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Soins non programmés</div>
+                    <div class="term-description">Spoedzorg via huisarts- of wachtdiensten buiten reguliere afspraken.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Hôpital public / privé</div>
+                    <div class="term-description">Publiek ziekenhuis volgt doorgaans S1-tarieven; privéziekenhuizen rekenen vaak S2-specialisten aan → meer kans op dépassements.</div>
+                </div>
+            </div>
+
+            <!-- Uitzonderingen -->
+            <div class="term-category">
+                <h3>F. Kostenplafonds en uitzonderingen</h3>
+                <div class="term-item">
+                    <div class="term-name">ALD (Affection de Longue Durée)</div>
+                    <div class="term-description">Lijst van erkende langdurige, ernstige aandoeningen (registratie via Assurance Maladie) met 100% vergoeding van BR voor zorg gerelateerd aan die aandoening. Dépassements vallen hier niet onder.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">CSS (Complémentaire Santé Solidaire)</div>
+                    <div class="term-description">Inkomensafhankelijke regeling voor gratis/goedkope aanvullende dekking; beperkt of geen dépassements voor aangesloten artsen onder deze regeling.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Forfait transport / sanitaire</div>
+                    <div class="term-description">Specifieke pakketten voor medisch vervoer; franchise van toepassing tenzij vrijstelling.</div>
+                </div>
+            </div>
+
+            <!-- Medicatie -->
+            <div class="term-category">
+                <h3>G. Regels rond medicatie en receptuur</h3>
+                <div class="term-item">
+                    <div class="term-name">Ordonnance</div>
+                    <div class="term-description">Recept; volgt vergoedingsklassen. Niet volgens richtlijnen = lagere vergoeding / verhoogde reste à charge.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Génériques</div>
+                    <div class="term-description">Generieke medicijnen: apotheker kan deze afleveren; weigering zonder medische reden kan leiden tot lagere vergoeding.</div>
+                </div>
+            </div>
+
+            <!-- Mutuelle -->
+            <div class="term-category">
+                <h3>H. Aanvullende verzekering (mutuelle)</h3>
+                <div class="term-item">
+                    <div class="term-name">Mutuelle / Complémentaire santé</div>
+                    <div class="term-description">Aanvullende verzekering die het Ticket modérateur en (deels) dépassements kan dekken. Franchises worden niet gedekt.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Niveaux de garantie</div>
+                    <div class="term-description">Dekkingstabel van de mutuelle (bijvoorbeeld 150%, 200%, 300% BR voor dépassements). Let op BR-referentie, niet factuurdekking.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Délai de carence</div>
+                    <div class="term-description">Wachttijd voor bepaalde vergoedingen bij sommige mutuelles (vaak tand/optiek); niet voor Assurance Maladie.</div>
+                </div>
+                <div class="term-item">
+                    <div class="term-name">Surcomplémentaire</div>
+                    <div class="term-description">Extra mutuelle-laag bovenop een primaire mutuelle, voor hogere BR-percentages of betere dépassement-dekking.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden sections for different categories -->
+        <div id="basis" class="rubriek-content"></div>
+        <div id="kosten" class="rubriek-content"></div>
+        <div id="sectoren" class="rubriek-content"></div>
+        <div id="zorgpad" class="rubriek-content"></div>
+        <div id="praktijk" class="rubriek-content"></div>
+        <div id="uitzonderingen" class="rubriek-content"></div>
+        <div id="medicatie" class="rubriek-content"></div>
+        <div id="mutuelle" class="rubriek-content"></div>
+    </div>
+
+    <script>
+        // Rubriek navigation
+        function showRubriek(rubriek) {
+            // Hide all content
+            document.querySelectorAll('.rubriek-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.rubriek-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected content
+            const selectedContent = document.getElementById(rubriek);
+            if (selectedContent) {
+                if (rubriek === 'alle') {
+                    selectedContent.classList.add('active');
+                } else {
+                    // Clone relevant content from 'alle' section
+                    const alleContent = document.getElementById('alle');
+                    let categoryMap = {
+                        'basis': 'A. Zorgverzekering (basis)',
+                        'kosten': 'B. Kostencomponenten en eigen bijdragen',
+                        'sectoren': 'C. Sectoren, afspraken en tariefstelsels',
+                        'zorgpad': 'D. Zorgpad en coördinatie',
+                        'praktijk': 'E. Zorgverlening in de praktijk',
+                        'uitzonderingen': 'F. Kostenplafonds en uitzonderingen',
+                        'medicatie': 'G. Regels rond medicatie en receptuur',
+                        'mutuelle': 'H. Aanvullende verzekering (mutuelle)'
+                    };
+                    
+                    const categoryTitle = categoryMap[rubriek];
+                    if (categoryTitle) {
+                        const categories = alleContent.querySelectorAll('.term-category');
+                        selectedContent.innerHTML = '';
+                        categories.forEach(cat => {
+                            if (cat.querySelector('h3').textContent === categoryTitle) {
+                                selectedContent.appendChild(cat.cloneNode(true));
+                            }
+                        });
+                        selectedContent.classList.add('active');
+                    }
+                }
+            }
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const allTerms = document.querySelectorAll('.term-item');
+            
+            if (searchTerm === '') {
+                allTerms.forEach(term => {
+                    term.style.display = 'block';
+                });
+                document.querySelectorAll('.term-category').forEach(cat => {
+                    cat.style.display = 'block';
+                });
+            } else {
+                allTerms.forEach(term => {
+                    const name = term.querySelector('.term-name').textContent.toLowerCase();
+                    const description = term.querySelector('.term-description').textContent.toLowerCase();
+                    
+                    if (name.includes(searchTerm) || description.includes(searchTerm)) {
+                        term.style.display = 'block';
+                        term.parentElement.style.display = 'block';
+                    } else {
+                        term.style.display = 'none';
+                    }
+                });
+                
+                // Hide empty categories
+                document.querySelectorAll('.term-category').forEach(cat => {
+                    const visibleTerms = cat.querySelectorAll('.term-item[style="display: block;"]');
+                    if (visibleTerms.length === 0) {
+                        cat.style.display = 'none';
+                    }
+                });
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
